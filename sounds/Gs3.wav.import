@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gs3.wav-0ed8089ecfef970c6702770d3b1694b8.sample"
+
+[deps]
+
+source_file="res://sounds/Gs3.wav"
+dest_files=[ "res://.import/Gs3.wav-0ed8089ecfef970c6702770d3b1694b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

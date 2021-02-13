@@ -1,0 +1,314 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://String.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TonePlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.45098, 0.45098, 0.45098, 0.364706 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 1
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.320312, 0.307018, 0.235229, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+width = 32
+
+[sub_resource type="Environment" id=7]
+background_mode = 1
+
+[sub_resource type="Animation" id=8]
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "PlayReference"
+}, {
+"args": [  ],
+"method": "PlayGuessed"
+} ]
+}
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.59375, 0.59375, 0.59375, 1 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+width = 1
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 686.695, 223.923 )
+scale = Vector2( 1428.81, 451.566 )
+texture = SubResource( 2 )
+
+[node name="Background2" type="Sprite" parent="."]
+position = Vector2( 65.1453, 218.965 )
+scale = Vector2( 186.938, 210.058 )
+texture = SubResource( 4 )
+
+[node name="Fretboard" type="Node2D" parent="."]
+position = Vector2( 126.874, 218.711 )
+
+[node name="Marks" type="Node2D" parent="Fretboard"]
+
+[node name="Mark1" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 190, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark2" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 320, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark3" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 447, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark4" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 575, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark7" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 959.896, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark8" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 1089.36, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark9" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 1216.49, 0 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark5" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 764.481, -49.1734 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="Mark6" type="Sprite" parent="Fretboard/Marks"]
+position = Vector2( 766.587, 49.7739 )
+rotation = 0.785398
+scale = Vector2( 0.5, 16 )
+texture = SubResource( 6 )
+
+[node name="E" parent="Fretboard" instance=ExtResource( 1 )]
+position = Vector2( 0, 75 )
+
+[node name="A" parent="Fretboard" instance=ExtResource( 1 )]
+position = Vector2( 0, 25 )
+base_tone = 5
+
+[node name="D" parent="Fretboard" instance=ExtResource( 1 )]
+position = Vector2( 0, -25 )
+base_tone = 10
+
+[node name="G" parent="Fretboard" instance=ExtResource( 1 )]
+position = Vector2( 0, -75 )
+base_tone = 15
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
+
+[node name="TonePlayer" parent="." instance=ExtResource( 2 )]
+
+[node name="TopGUI" type="Control" parent="."]
+margin_left = 168.87
+margin_top = 35.3954
+margin_right = 208.87
+margin_bottom = 75.3949
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hbox" type="HBoxContainer" parent="TopGUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSplit1" type="VSplitContainer" parent="TopGUI/Hbox"]
+margin_right = 74.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="TopGUI/Hbox/VSplit1"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Fret min"
+
+[node name="FretMin" type="SpinBox" parent="TopGUI/Hbox/VSplit1"]
+margin_top = 26.0
+margin_right = 74.0
+margin_bottom = 66.0
+max_value = 20.0
+
+[node name="VSplit2" type="VSplitContainer" parent="TopGUI/Hbox"]
+margin_left = 78.0
+margin_right = 152.0
+margin_bottom = 66.0
+
+[node name="Label2" type="Label" parent="TopGUI/Hbox/VSplit2"]
+margin_right = 74.0
+margin_bottom = 14.0
+text = "Fret max"
+
+[node name="FretMax" type="SpinBox" parent="TopGUI/Hbox/VSplit2"]
+margin_top = 26.0
+margin_right = 74.0
+margin_bottom = 66.0
+max_value = 20.0
+value = 12.0
+
+[node name="VSplit3" type="VSplitContainer" parent="TopGUI/Hbox"]
+margin_left = 156.0
+margin_right = 234.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="TopGUI/Hbox/VSplit3"]
+margin_right = 78.0
+margin_bottom = 14.0
+text = "Tone names"
+
+[node name="ToneNames" type="CheckButton" parent="TopGUI/Hbox/VSplit3"]
+margin_top = 26.0
+margin_right = 78.0
+margin_bottom = 66.0
+pressed = true
+
+[node name="BottomGUI" type="Control" parent="."]
+margin_left = 170.367
+margin_top = 344.134
+margin_right = 210.367
+margin_bottom = 384.134
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="BottomGUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RandomInterval" type="Button" parent="BottomGUI/HBox"]
+margin_right = 111.0
+margin_bottom = 50.0
+text = "Random inteval"
+
+[node name="Listen" type="Button" parent="BottomGUI/HBox"]
+margin_left = 115.0
+margin_right = 166.0
+margin_bottom = 50.0
+text = "Listen"
+
+[node name="RantomTone" type="Button" parent="BottomGUI/HBox"]
+margin_left = 170.0
+margin_right = 267.0
+margin_bottom = 50.0
+text = "Random tone"
+
+[node name="Clear" type="Button" parent="BottomGUI/HBox"]
+margin_left = 271.0
+margin_right = 315.0
+margin_bottom = 50.0
+text = "Clear"
+
+[node name="VSeparator2" type="VSeparator" parent="BottomGUI/HBox"]
+margin_left = 319.0
+margin_right = 323.0
+margin_bottom = 50.0
+
+[node name="Vsplit1" type="VSplitContainer" parent="BottomGUI/HBox"]
+margin_left = 327.0
+margin_right = 405.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="BottomGUI/HBox/Vsplit1"]
+margin_right = 78.0
+margin_bottom = 14.0
+text = "Interval min"
+
+[node name="IntervalMin" type="SpinBox" parent="BottomGUI/HBox/Vsplit1"]
+margin_top = 26.0
+margin_right = 78.0
+margin_bottom = 50.0
+max_value = 35.0
+value = 1.0
+
+[node name="VSeparator" type="VSeparator" parent="BottomGUI/HBox"]
+margin_left = 409.0
+margin_right = 413.0
+margin_bottom = 50.0
+
+[node name="Vsplit2" type="VSplitContainer" parent="BottomGUI/HBox"]
+margin_left = 417.0
+margin_right = 497.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="BottomGUI/HBox/Vsplit2"]
+margin_right = 80.0
+margin_bottom = 14.0
+text = "Interval max"
+
+[node name="IntervalMax" type="SpinBox" parent="BottomGUI/HBox/Vsplit2"]
+margin_top = 26.0
+margin_right = 80.0
+margin_bottom = 50.0
+max_value = 35.0
+value = 35.0
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/PlayInteval = SubResource( 8 )
+
+[node name="FretZero" type="Sprite" parent="."]
+position = Vector2( 160.507, 218.662 )
+scale = Vector2( 12.48, 218.163 )
+texture = SubResource( 10 )
+[connection signal="value_changed" from="TopGUI/Hbox/VSplit1/FretMin" to="." method="_on_bounds_changed"]
+[connection signal="value_changed" from="TopGUI/Hbox/VSplit2/FretMax" to="." method="_on_bounds_changed"]
+[connection signal="toggled" from="TopGUI/Hbox/VSplit3/ToneNames" to="." method="_on_ToneNames_toggled"]
+[connection signal="pressed" from="BottomGUI/HBox/RandomInterval" to="." method="_on_RandomInterval_pressed"]
+[connection signal="pressed" from="BottomGUI/HBox/Listen" to="." method="_on_Listen_pressed"]
+[connection signal="pressed" from="BottomGUI/HBox/RantomTone" to="." method="_on_RantomTone_pressed"]
+[connection signal="pressed" from="BottomGUI/HBox/Clear" to="." method="_on_Clear_pressed"]
